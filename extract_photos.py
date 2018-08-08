@@ -168,6 +168,9 @@ def run(lib_dir, output_dir):
 
         # Export!
         base_export_path = os.path.join(output_dir, iuuid)
+        if os.path.exists(master_path) is False:
+            print("ERROR! %s does NOT exist, skipping..." % master_path)
+            continue
         # Copy the master
         shutil.copy2(
             master_path,
