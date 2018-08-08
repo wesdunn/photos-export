@@ -62,7 +62,7 @@ def run(lib_dir, output_dir):
     c.execute('SELECT * FROM RKMaster')
 
     namer = gen_name()
-    bar = progressbar.ProgressBar(max_value=number_of_rows)
+    bar = progressbar.ProgressBar(maxval=number_of_rows)
     for master in bar(iter(c.fetchone, None)):
         master_uuid = master['uuid']
         master_path = os.path.join(lib_dir, 'Masters', master['imagePath'])
